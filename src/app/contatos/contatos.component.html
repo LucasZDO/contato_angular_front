@@ -1,0 +1,219 @@
+<div class="container bg-light p-4">
+  <div class="row">
+    <div class="col-7 m-auto">
+      <h1 class="text-center">Cadastro de Contatos</h1>
+      <form [formGroup]="formGroupContato">
+        <div class="mb-3">
+          <label for="inputName" class="form-label">Nome</label>
+          <input
+            formControlName="name"
+            type="text"
+            class="form-control"
+            id="inputName"
+            aria-describedby="nameHelp"
+          />
+          <div id="nameHelp" class="form-text">Digite o nome</div>
+        </div>
+        <div class="mb-3">
+          <label for="inputTelephone" class="form-label">Telefone</label>
+          <input
+            formControlName="telephone"
+            type="text"
+            class="form-control"
+            id="inputTelephone"
+            aria-describedby="telephoneHelp"
+          />
+          <div id="telephoneHelp" class="form-text">
+            Digite o numero de telefone
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input
+            formControlName="email"
+            type="text"
+            class="form-control"
+            id="inputEmail"
+            aria-describedby="email"
+          />
+          <div id="EmailHelp" class="form-text">Digite o email</div>
+        </div>
+        <div class="mb-3">
+          <label for="AgeCourse" class="form-label">Idade</label>
+          <input
+            formControlName="age"
+            type="text"
+            class="form-control"
+            id="inputAge"
+            aria-describedby="AgeHelp"
+          />
+          <div id="AgeHelp" class="form-text">Digite a idade</div>
+        </div>
+        <div class="mb-3">
+          <label for="inputmaritalStatus" class="form-label"
+            >Estado civil</label
+          >
+          <input
+            formControlName="maritalStatus"
+            type="text"
+            class="form-control"
+            id="inputmaritalStatus"
+            aria-describedby="maritalStatusHelp"
+          />
+          <div id="maritalStatusHelp" class="form-text">
+            Digite o seu estado civil
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="inputRG" class="form-label">RG</label>
+          <input
+            formControlName="RG"
+            type="text"
+            class="form-control"
+            id="inputRG"
+            aria-describedby="RGHelp"
+          />
+          <div id="RGHelp" class="form-text">Digite o numero do RG</div>
+        </div>
+        <div class="mb-3">
+          <label for="inputCPF" class="form-label">CPF</label>
+          <input
+            formControlName="CPF"
+            type="text"
+            class="form-control"
+            id="inputCPF"
+            aria-describedby="CPFHelp"
+          />
+          <div id="CPFHelp" class="form-text">Digite o numero do CPF</div>
+        </div>
+        <div class="mb-3">
+          <label for="inputprofession" class="form-label">Profissão</label>
+          <input
+            formControlName="profession"
+            type="text"
+            class="form-control"
+            id="inputprofession"
+            aria-describedby="professionHelp"
+          />
+          <div id="professionHelp" class="form-text">Digite a profissão</div>
+        </div>
+        <div class="mb-3">
+          <label for="inputaddress" class="form-label">Endereço</label>
+          <input
+            formControlName="address"
+            type="text"
+            class="form-control"
+            id="inputaddress"
+            aria-describedby="addressHelp"
+          />
+          <div id="addressHelp" class="form-text">Digite o endereço</div>
+        </div>
+        <div class="mb-3">
+          <label for="inputdateOfBirth" class="form-label"
+            >Data de Nascimento</label
+          >
+          <input
+            formControlName="dateOfBirth"
+            type="text"
+            class="form-control"
+            id="inputdateOfBirth"
+            aria-describedby="dateOfBirthHelp"
+          />
+          <div id="dateOfBirthHelp" class="form-text">
+            Digite a data de nascimento
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="inputcategory" class="form-label">Categoria</label>
+          <select
+            formControlName="category"
+            class="form-select"
+            id="inputcategory"
+            aria-describedby="categoryHelp"
+          >
+            <option value="família">Família</option>
+            <option value="trabalho">Trabalho</option>
+            <option value="escola">Escola</option>
+            <option value="amigo">Amigo</option>
+            <option value="vizinho">Vizinho</option>
+          </select>
+          <div id="categoryHelp" class="form-text">
+            Escolha a categoria do contato
+          </div>
+        </div>
+
+        <div class="form-check mb-3">
+          <input
+            formControlName="favorite"
+            type="checkbox"
+            class="form-check-input"
+            id="inputFavorite"
+          />
+          <label class="form-check-label" for="inputFavorite">Favorito</label>
+        </div>
+
+        <button *ngIf="!isEditing" class="btn btn-primary" (click)="save()">
+          Salvar
+        </button>
+
+        <button *ngIf="isEditing" class="btn btn-primary" (click)="update()">
+          Atualizar
+        </button>
+
+        <button class="btn btn-secondary ms-2" (click)="clear()">
+          Cancelar
+        </button>
+      </form>
+      <h2 class="text-center">Contatos Cadastrados</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Estadocivil</th>
+            <th scope="col">RG</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Profissão</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">DatadeNascimento</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Favorito</th>
+            <th scope="col">Remover</th>
+            <th scope="col">Alterar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of contatos">
+            <th scope="row">{{ s.id }}</th>
+            <td>{{ s.name }}</td>
+            <td>{{ s.telephone }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.age }}</td>
+            <td>{{ s.maritalStatus }}</td>
+            <td>{{ s.RG }}</td>
+            <td>{{ s.CPF }}</td>
+            <td>{{ s.profession }}</td>
+            <td>{{ s.address }}</td>
+            <td>{{ s.dateOfBirth }}</td>
+            <td>{{ s.category }}</td>
+            <td>{{ s.favorite ? "★" : "☆" }}</td>
+
+            <td>
+              <button class="btn btn-danger" (click)="delete(s)">
+                Remover
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-primary" (click)="onClickUpdate(s)">
+                Alterar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

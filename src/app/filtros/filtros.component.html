@@ -1,0 +1,80 @@
+<h2 class="text-center">Filtrar Contatos</h2>
+
+<form [formGroup]="filtroForm" (ngSubmit)="buscarContatos()" class="mb-4">
+  <div class="row g-2">
+    <div class="col">
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        placeholder="Nome"
+      />
+    </div>
+    <div class="col">
+      <input
+        formControlName="telephone"
+        type="text"
+        class="form-control"
+        placeholder="Telefone"
+      />
+    </div>
+    <div class="col">
+      <input
+        formControlName="email"
+        type="text"
+        class="form-control"
+        placeholder="Email"
+      />
+    </div>
+    <div class="col">
+      <select formControlName="categoria" class="form-select">
+        <option value="">Todas as categorias</option>
+        <option value="família">Família</option>
+        <option value="trabalho">Trabalho</option>
+        <option value="escola">Escola</option>
+      </select>
+    </div>
+    <div class="col-auto d-flex align-items-center">
+      <input
+        formControlName="favorito"
+        type="checkbox"
+        class="form-check-input me-1"
+        id="filtroFavorito"
+      />
+      <label for="filtroFavorito" class="form-check-label">Só favoritos</label>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary" type="submit">Buscar</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>Categoria</th>
+      <th>Favorito</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contato of contatos">
+      <td>{{ contato.name }}</td>
+      <td>{{ contato.telephone }}</td>
+      <td>{{ contato.email }}</td>
+      <td>{{ contato.category }}</td>
+      <td>{{ contato.favorite ? "★" : "☆" }}</td>
+      <td>
+        <button
+          class="btn btn-sm btn-outline-warning"
+          (click)="alternarFavorito(contato)"
+        >
+          {{ contato.favorite ? "Desfavoritar" : "Favoritar" }}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

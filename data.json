@@ -1,0 +1,19 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "name": "Lucas",
+      "telephone": "1241414",
+      "email": "eryttyryry",
+      "age": "18",
+      "maritalStatus": "ssssssssss",
+      "RG": "2222",
+      "CPF": "45566",
+      "profession": "ffffffffff",
+      "address": "rrrrrrrrrr",
+      "dateOfBirth": "fggggggggggggggg",
+      "category": "família",
+      "favorite": true
+    }
+  ]
+}
