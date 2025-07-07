@@ -25,8 +25,8 @@ export class ContatosComponent {
       email: [''],
       age: [''],
       maritalStatus: [''],
-      RG: [''],
-      CPF: [''],
+      rg: [''],
+      cpf: [''],
       profession: [''],
       address: [''],
       dateOfBirth: [''],
@@ -46,6 +46,9 @@ export class ContatosComponent {
   }
 
   save() {
+
+    console.log(this.formGroupContato.value);
+
     this.service.save(this.formGroupContato.value).subscribe({
       next: (json) => {
         this.contatos.push(json);

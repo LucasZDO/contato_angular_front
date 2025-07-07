@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ContatoService {
-  apiUrl = 'http://localhost:3000/contatos';
+  apiUrl = 'http://localhost:8080/contatos';
+  // apiUrl = 'http://localhost:3000/contatos';
 
   constructor(private http: HttpClient) {}
 
@@ -29,11 +30,13 @@ export class ContatoService {
 
   listarContatosComFiltro(filtros: any): Observable<Contato[]> {
     let params = new HttpParams();
+
+    // popular o params com os filtros do component
     Object.keys(filtros).forEach((key) => {
-      if (filtros[key] !== null && filtros[key] !== '') {
-        params = params.set(key, filtros[key]);
-      }
+      params = params.set(key, filtros[key]);
     });
+
+    console.log('url de requisicao e: ' + `${this.apiUrl}/filtros`);
 
     return this.http.get<Contato[]>(`${this.apiUrl}/filtros`, { params });
   }

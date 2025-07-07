@@ -1,12 +1,12 @@
 export interface Contato {
   id: number;
   name: string;
-  telephone: number;
+  telephone: string;
   email: string;
-  age: number;
+  age: string;
   maritalStatus: string;
-  RG: number;
-  CPF: number;
+  rg: string;
+  cpf: string;
   profession: string;
   address: string;
   dateOfBirth: string;
