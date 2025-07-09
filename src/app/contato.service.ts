@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ContatoService {
-  apiUrl = 'http://localhost:8080/contatos';
+  apiUrl = 'https://gerenciarcontatos.duckdns.org/contatos';
+  //apiUrl = 'http://localhost:8080/contatos';
   // apiUrl = 'http://localhost:3000/contatos';
 
   constructor(private http: HttpClient) {}
